@@ -12,19 +12,20 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 
-public class ContaUsuario {
+@Table(name = "AccountUser")
+public class AccountUser {
 
     @Id
+    @Column(name = "idAccount")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_conta")
     private Long id;
 
 
-    @Column(name = "numero_conta")
-    private String numeroConta;
+    @Column(name = "numberAccount")
+    private String numberAccount;
 
     @OneToOne
-    @JoinColumn(name = "id_user")
-    private  Usuario usuarioConta;
+    @JoinColumn(name = "idUser")
+    private UserBank accountUserBank;
 
 }

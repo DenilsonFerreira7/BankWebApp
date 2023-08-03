@@ -11,19 +11,20 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 
-public class Usuario {
+@Table(name = "UserBank")
+public class UserBank {
 
     @Id
+    @Column(name = "idUser")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
     private Long id;
 
-    @Column(name = "nome_user")
-    private String nome;
+    @Column(name = "nameUser")
+    private String name;
 
-    @Column (name = "cpf_user")
+    @Column (name = "cpfUser")
     private String cpf;
 
-    @Column (name = "telefone_user")
-    private Integer telefone;
+    @Column (name = "telephoneUser")
+    private String telephone;
 }
