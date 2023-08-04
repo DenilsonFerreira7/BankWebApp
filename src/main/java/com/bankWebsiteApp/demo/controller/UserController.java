@@ -15,8 +15,14 @@ public class UserController {
 
 
     @PostMapping(value = "/create", produces = "application/json")
-    public ResponseEntity<String> createAccount (@RequestBody UserBank userBank){
+    public ResponseEntity <String> createAccount (@RequestBody UserBank userBank){
         userService.CriarConta(userBank);
         return ResponseEntity.status(HttpStatus.CREATED).body("CREATED");
+    }
+
+    @GetMapping (value = "/consultInfo/{id}",produces = "application/json")
+    public ResponseEntity<UserBank> consultInfo  (@PathVariable Long id) {
+       UserBank userBank = userService.ConsultAccount(id);
+        return new ResponseEntity<>(userBank,HttpStatus.OK);
     }
 }
