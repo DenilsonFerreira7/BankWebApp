@@ -75,7 +75,7 @@ class BankWebSiteApplicationTests {
 
 		UserService userService = new UserService(userRepository);
 
-		UserBank resultUser = userService.ConsultAccount(1L);
+		UserBank resultUser = userService.ConsultAccountUser(1L);
         //verifica se o resultado não e nulo
 		assertNotNull(resultUser);
 		assertEquals(1l, resultUser.getId());

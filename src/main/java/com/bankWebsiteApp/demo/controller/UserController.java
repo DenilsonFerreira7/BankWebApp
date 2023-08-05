@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/accountUser")
 public class UserController {
 
     private final UserService userService;
@@ -22,7 +22,7 @@ public class UserController {
 
     @GetMapping (value = "/consultInfo/{id}",produces = "application/json")
     public ResponseEntity<UserBank> consultInfo  (@PathVariable Long id) {
-       UserBank userBank = userService.ConsultAccount(id);
+       UserBank userBank = userService.ConsultAccountUser(id);
         return new ResponseEntity<>(userBank,HttpStatus.OK);
     }
 }

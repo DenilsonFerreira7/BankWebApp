@@ -16,7 +16,7 @@ public class UserService {
         return userRepository.save(userBank);
     }
 
-    public UserBank ConsultAccount(Long id) {
+    public UserBank ConsultAccountUser(Long id) {
         Optional<UserBank> userBanks = userRepository.findById(id);
         return userRepository.findById(id).orElse(null);
     }
