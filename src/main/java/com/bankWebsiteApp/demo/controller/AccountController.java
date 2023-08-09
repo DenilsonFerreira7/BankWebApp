@@ -19,7 +19,8 @@ public class AccountController {
 
     @PostMapping(value = "/create", produces = "application/json")
     public ResponseEntity <String> createAccount (@RequestBody AccountUser accountUser){
-        accountUserService.AccountCreate(accountUser);
-        return ResponseEntity.status(HttpStatus.CREATED).body("CREATED");
+        AccountUser createdAccount = accountUserService.createAccount(accountUser);
+        return ResponseEntity.status(HttpStatus.CREATED).
+                body("Sua nova conta do appBank foi criada o numerodo seu cartão é " + createdAccount.getNumberAccount());
     }
 }

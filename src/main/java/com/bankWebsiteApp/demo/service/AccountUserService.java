@@ -1,5 +1,6 @@
 package com.bankWebsiteApp.demo.service;
 
+import com.bankWebsiteApp.demo.CardConfiguration.CardNumberGenerator;
 import com.bankWebsiteApp.demo.models.AccountUser;
 import com.bankWebsiteApp.demo.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +12,9 @@ public class AccountUserService {
 
   private final  AccountRepository accountRepository;
 
-    public AccountUser AccountCreate (AccountUser accountUser) {
+    public AccountUser createAccount (AccountUser accountUser) {
+        String generatedNumber = CardNumberGenerator.generateRandomNumber();
+        accountUser.setNumberAccount(generatedNumber);
         return accountRepository.save(accountUser);
     }
 
