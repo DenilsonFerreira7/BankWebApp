@@ -1,6 +1,8 @@
 package com.bankWebsiteApp.demo.controller;
+
 import com.bankWebsiteApp.demo.models.UserBank;
 import com.bankWebsiteApp.demo.service.UserService;
+import com.bankWebsiteApp.demo.util.ResponseMessages;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +17,10 @@ public class UserController {
 
 
     @PostMapping(value = "/create", produces = "application/json")
-    public ResponseEntity <String> createAccount (@RequestBody UserBank userBank){
-        userService.CriarConta(userBank);
-        return ResponseEntity.status(HttpStatus.CREATED).body("CREATED");
+    public ResponseEntity<ResponseMessages> createAccount (@RequestBody UserBank userBank){
+        UserBank createdUser = userService.CriarConta(userBank);
+        return ResponseEntity.status(HttpStatus.CREATED).
+                body(ResponseMessages.userCreated(createdUser.getName()));
     }
 
     @GetMapping (value = "/consultInfo/{id}",produces = "application/json")
