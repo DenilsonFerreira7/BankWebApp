@@ -17,7 +17,7 @@ public class UserBank {
     @Id
     @Column(name = "idUser")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idUser;
 
     @Column(name = "nameUser")
     private String name;

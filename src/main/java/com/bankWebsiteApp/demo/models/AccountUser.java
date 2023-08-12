@@ -21,11 +21,14 @@ public class AccountUser {
     @Id
     @Column(name = "idAccount")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idAccount;
 
 
     @Column(name = "numberAccount")
     private String numberAccount;
+
+    @Column (name = "passwordAccount")
+    private String passwordAccount;
 
     @OneToOne
     @JoinColumn(name = "idUser")
