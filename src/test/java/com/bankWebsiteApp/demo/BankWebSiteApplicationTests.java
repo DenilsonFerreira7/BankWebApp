@@ -66,7 +66,7 @@ class BankWebSiteApplicationTests {
 		//simula criação de usuario
 		UserRepository userRepository = mock(UserRepository.class);
 		UserBank user = new UserBank();
-		user.setId(1L);
+		user.setIdUser(1L);
 		user.setName("Denilson");
 		user.setCpf("123212321232");
 		user.setTelephone("13225154857");
@@ -78,7 +78,7 @@ class BankWebSiteApplicationTests {
 		UserBank resultUser = userService.ConsultAccountUser(1L);
         //verifica se o resultado não e nulo
 		assertNotNull(resultUser);
-		assertEquals(1l, resultUser.getId());
+		assertEquals(1l, resultUser.getIdUser());
 		assertEquals("Denilson", resultUser.getName());
 		assertEquals("123212321232", resultUser.getCpf());
 		assertEquals("13225154857", resultUser.getTelephone());

@@ -1,6 +1,8 @@
 package com.bankWebsiteApp.demo.service;
 
 import com.bankWebsiteApp.demo.CardConfiguration.CardNumberGenerator;
+import com.bankWebsiteApp.demo.dto.AccountUserDto;
+import com.bankWebsiteApp.demo.mapper.AccountUserMapper;
 import com.bankWebsiteApp.demo.models.AccountUser;
 import com.bankWebsiteApp.demo.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
@@ -9,8 +11,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class AccountUserService {
+    private final  AccountRepository accountRepository;
+    private final AccountUserMapper accountUserMapper;
 
-  private final  AccountRepository accountRepository;
 
     public AccountUser createAccount (AccountUser accountUser) {
         String generatedNumber = CardNumberGenerator.generateRandomNumber();
@@ -18,8 +21,8 @@ public class AccountUserService {
         return accountRepository.save(accountUser);
     }
 
-    public AccountUser AccountConsult (String numberAccount) {
-        AccountUser accountUser = accountRepository.findByNumberAccount(numberAccount);
-        return accountRepository.findByNumberAccount(numberAccount);
+    public AccountUserDto getAccountUserDtoByAccountUserBank(Long accountUserBankId) {
+        AccountUser accountUser = accountRepository.findByAccountUserBankIdUser(accountUserBankId);
+        return accountUserMapper.toDto(accountUser);
     }
 }

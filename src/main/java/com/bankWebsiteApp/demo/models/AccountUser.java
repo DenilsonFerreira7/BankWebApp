@@ -1,11 +1,9 @@
 package com.bankWebsiteApp.demo.models;
-
 import com.bankWebsiteApp.demo.CardConfiguration.CardNumberGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 
@@ -23,10 +21,8 @@ public class AccountUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAccount;
 
-
     @Column(name = "numberAccount")
     private String numberAccount;
-
 
     @Column (name = "passwordAccount")
     private String passwordAccount;
@@ -34,7 +30,6 @@ public class AccountUser {
     @OneToOne
     @JoinColumn(name = "idUser")
     private UserBank accountUserBank;
-
 
     // Construtor para preencher automaticamente o número da conta
     public AccountUser(UserBank accountUserBank) {
