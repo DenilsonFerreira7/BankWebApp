@@ -11,13 +11,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 
-@Table(name = "Transactions")
-public class Transactions {
+@Table(name = "Balance")
+public class Balance {
 
     @Id
-    @Column(name = "idTransactions")
+    @Column(name = "idBalance")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idTransaction;
+    private long idBalance;
 
     @Column(name = "debit")
     private Boolean debit;
