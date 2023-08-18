@@ -1,8 +1,10 @@
 package com.bankWebsiteApp.demo.models;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Data
@@ -20,12 +22,13 @@ public class Balance {
     private long idBalance;
 
     @Column(name = "debit")
-    private Boolean debit;
+    private double debit;
 
     @Column(name = "credit")
-    private Boolean credit;
+    private int credit;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "idUser")
     private UserBank accountUserBank;
+
 }
