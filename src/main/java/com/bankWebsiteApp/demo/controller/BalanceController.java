@@ -2,6 +2,7 @@ package com.bankWebsiteApp.demo.controller;
 
 import com.bankWebsiteApp.demo.models.Balance;
 import com.bankWebsiteApp.demo.service.BalanceService;
+import com.bankWebsiteApp.demo.util.ResponseMessages;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,7 @@ public class BalanceController {
     @PostMapping(value = "/created", produces = "application/json")
     public ResponseEntity balanceCreated (@RequestBody Balance balance){
         Balance balanceCreated = balanceService.createBalance(balance);
-        return  ResponseEntity.status(HttpStatus.CREATED).body("ok");
+        return  ResponseEntity.status(HttpStatus.CREATED).
+                body(ResponseMessages.balanceCreated(balanceCreated.getCredit()));
     }
 }

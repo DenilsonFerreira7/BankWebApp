@@ -26,4 +26,8 @@ public class BalanceService {
         balance.setAccountUserBank(userBank);
         return balanceRepository.save(balance);
     }
+
+    public Balance getBalanceForUserBank(UserBank userBank) {
+        return balanceRepository.findByAccountUserBank(userBank);
+    }
 }

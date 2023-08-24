@@ -14,4 +14,8 @@ public class ResponseMessages {
     public static ResponseMessages userCreated(String userBank) {
         return new ResponseMessages("Seja bem vindo " + userBank + " você acaba de se cadastrar no maior banco do brasil AppBank");
     }
+
+    public static ResponseMessages balanceCreated (int Balance) {
+        return new ResponseMessages("Parabéns, você recebeu um limite de credito inicial no valor de  " +Balance+ " $ aproveite !!! ");
+    }
 }

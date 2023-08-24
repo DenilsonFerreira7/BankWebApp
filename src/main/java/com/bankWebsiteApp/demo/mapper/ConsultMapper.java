@@ -4,7 +4,7 @@ import com.bankWebsiteApp.demo.dto.AccountUserDto;
 import com.bankWebsiteApp.demo.models.AccountUser;
 import org.springframework.stereotype.Component;
 @Component
-public class AccountUserMapper {
+public class ConsultMapper {
     public AccountUserDto toDto(AccountUser accountUser) {
         AccountUserDto accountUserDto = new AccountUserDto();
         accountUserDto.setNumberAccount(accountUser.getNumberAccount());
