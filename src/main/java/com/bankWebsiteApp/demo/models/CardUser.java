@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
 @Data
@@ -13,27 +14,28 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 
-@Table(name = "AccountUser")
-public class AccountUser {
+@Table(name = "CardUser")
+public class CardUser {
 
     @Id
-    @Column(name = "idAccount")
+    @Column(name = "idCard")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idAccount;
+    private Long idCard;
 
-    @Column(name = "numberAccount")
-    private String numberAccount;
+    @Column(name = "numberCard")
+    private String numberCard;
 
-    @Column (name = "passwordAccount")
-    private String passwordAccount;
+    @NotNull
+    @Column (name = "passwordCard")
+    private String passwordCard;
 
     @OneToOne
     @JoinColumn(name = "idUser")
     private UserBank accountUserBank;
 
     // Construtor para preencher automaticamente o número da conta
-    public AccountUser(UserBank accountUserBank) {
+    public CardUser(UserBank accountUserBank) {
         this.accountUserBank = accountUserBank;
-        this.numberAccount = CardNumberGenerator.generateRandomNumber();
+        this.numberCard = CardNumberGenerator.generateRandomNumber();
     }
 }

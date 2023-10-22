@@ -25,7 +25,7 @@ public class Transaction {
     private UserBank passwordAccount;
 
     @ManyToOne
-    @JoinColumn(name = "balance_id")
+    @JoinColumn(name = "balanceId")
     private Balance balance;
 
     @Column(name = "transactionType")

@@ -9,10 +9,9 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountUserDto implements Serializable {
+public class CardUserDto implements Serializable {
 
     private String numberAccount;
-
     private Long accountUserBank;
 
 }

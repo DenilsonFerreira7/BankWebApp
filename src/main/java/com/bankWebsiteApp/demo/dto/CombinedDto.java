@@ -8,10 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CombinedDto {
-
-
-        private UserBankDto userBankDto;
-        private BalanceDto balanceDto;
-        private AccountUserDto accountUserDto;
+     private UserBankDto userBankDto;
+     private BalanceDto balanceDto;
+     private CardUserDto cardUserDto;
 
 }

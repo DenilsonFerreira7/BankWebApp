@@ -9,10 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserBankDto {
 
-
     private String name;
-
     private String telephone;
-
     private Long accountUserBank;
 }

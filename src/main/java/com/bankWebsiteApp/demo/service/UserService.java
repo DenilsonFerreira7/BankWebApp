@@ -1,4 +1,5 @@
 package com.bankWebsiteApp.demo.service;
+
 import com.bankWebsiteApp.demo.models.UserBank;
 import com.bankWebsiteApp.demo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +17,9 @@ public class UserService {
         return userRepository.save(userBank);
     }
 
-    public Optional<UserBank> ConsultAccountUser(Long id) {
-        Optional<UserBank> userBanks = userRepository.findById(id);
-        return userRepository.findById(id);
+    public UserBank ConsultAccountUser(Long id) {
+        Optional<UserBank> userBankOptional = userRepository.findById(id);
+        return userBankOptional.get();
     }
 }
+

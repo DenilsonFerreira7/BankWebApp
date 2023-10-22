@@ -22,6 +22,7 @@ public class BalanceService {
 
         UserBank userBank = userRepository.findById(balance.
                 getAccountUserBank().getIdUser()).orElse(null);
+        assert userBank != null;
         userRepository.save(userBank);
         balance.setAccountUserBank(userBank);
         return balanceRepository.save(balance);

@@ -1,10 +1,10 @@
 package com.bankWebsiteApp.demo.mapper;
 
-import com.bankWebsiteApp.demo.dto.AccountUserDto;
+import com.bankWebsiteApp.demo.dto.CardUserDto;
 import com.bankWebsiteApp.demo.dto.BalanceDto;
 import com.bankWebsiteApp.demo.dto.UserBankDto;
-import com.bankWebsiteApp.demo.models.AccountUser;
 import com.bankWebsiteApp.demo.models.Balance;
+import com.bankWebsiteApp.demo.models.CardUser;
 import com.bankWebsiteApp.demo.models.UserBank;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -25,7 +25,7 @@ public class DtoMapper {
         return modelMapper.map(balance, BalanceDto.class);
     }
 
-    public AccountUserDto convertToAccountUserDto(AccountUser accountUser) {
-        return modelMapper.map(accountUser, AccountUserDto.class);
+    public CardUserDto convertToAccountUserDto(CardUser cardUser) {
+        return modelMapper.map(cardUser, CardUserDto.class);
     }
 }

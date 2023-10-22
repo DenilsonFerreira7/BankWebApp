@@ -1,8 +1,10 @@
 package com.bankWebsiteApp.demo.models;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Data
@@ -25,6 +27,14 @@ public class UserBank {
     @Column (name = "cpfUser")
     private String cpf;
 
+    @Column (name = "passwordUser")
+    private String passwordUser;
+
+    @Column (name = "emailUser")
+    private String emailUser;
+
     @Column (name = "telephoneUser")
     private String telephone;
+
+
 }
