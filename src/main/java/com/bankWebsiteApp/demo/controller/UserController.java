@@ -17,7 +17,7 @@ public class UserController {
 
 
     @PostMapping(value = "/create", produces = "application/json")
-    public ResponseEntity<ResponseMessagesSuccessful> createAccount (@RequestBody UserBank userBank){
+    public ResponseEntity<ResponseMessagesSuccessful> createAccountUser (@RequestBody UserBank userBank){
         UserBank createdUser = userService.CriarConta(userBank);
         return ResponseEntity.status(HttpStatus.CREATED).
                 body(ResponseMessagesSuccessful.userCreated(createdUser.getName()));
