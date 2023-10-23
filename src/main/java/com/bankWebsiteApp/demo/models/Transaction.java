@@ -21,8 +21,8 @@ public class Transaction {
     private long idTransaction;
 
     @ManyToOne
-    @JoinColumn(name = "passwordAccount")
-    private UserBank passwordAccount;
+    @JoinColumn(name = "passwordUser")
+    private UserBank passwordUser;
 
     @ManyToOne
     @JoinColumn(name = "balanceId")
