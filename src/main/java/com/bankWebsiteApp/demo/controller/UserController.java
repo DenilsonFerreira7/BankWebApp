@@ -1,5 +1,6 @@
 package com.bankWebsiteApp.demo.controller;
 
+import com.bankWebsiteApp.demo.dto.UserBankDTO;
 import com.bankWebsiteApp.demo.models.UserBank;
 import com.bankWebsiteApp.demo.service.UserService;
 import com.bankWebsiteApp.demo.util.ResponseMessagesSuccessful;
@@ -27,8 +28,8 @@ public class UserController {
 
 
     @GetMapping (value = "/consultInfo/{id}",produces = "application/json")
-    public UserBank consultInfo  (@PathVariable Long id) {
-       UserBank userBank = userService.ConsultAccountUser(id);
+    public UserBankDTO consultInfo  (@PathVariable Long id) {
+       UserBankDTO userBank = userService.ConsultAccountUser(id);
         return new ResponseEntity<>(userBank,HttpStatus.OK).getBody();
     }
 }

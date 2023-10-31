@@ -5,17 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 
-public class BalanceDto implements Serializable {
-
-    private double debit;
-    private int credit;
-    private Long accountUserBank;
+public class CombinedDTO {
+     private UserBankDTO userBankDto;
+     private BalanceDTO balanceDto;
+     private CardUserDTO cardUserDto;
 
 }

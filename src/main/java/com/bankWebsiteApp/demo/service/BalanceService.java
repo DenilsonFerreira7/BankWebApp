@@ -1,6 +1,7 @@
 package com.bankWebsiteApp.demo.service;
 
 import com.bankWebsiteApp.demo.CardConfiguration.CardCreditLimit;
+import com.bankWebsiteApp.demo.dto.UserBankDTO;
 import com.bankWebsiteApp.demo.models.Balance;
 import com.bankWebsiteApp.demo.models.UserBank;
 import com.bankWebsiteApp.demo.repository.BalanceRepository;
@@ -28,7 +29,7 @@ public class BalanceService {
         return balanceRepository.save(balance);
     }
 
-    public Balance getBalanceForUserBank(UserBank userBank) {
+    public Balance getBalanceForUserBank(UserBankDTO userBank) {
         return balanceRepository.findByAccountUserBank(userBank);
     }
 }

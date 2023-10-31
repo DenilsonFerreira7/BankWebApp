@@ -15,7 +15,7 @@ public class TransactionRequestDto {
 
     private UserBank idUser;
     private Balance idBalance;
-    private CardUserDto cardUser;
+    private CardUserDTO cardUser;
     private String transactionType;
     private Double transactionAmount;
     private String beneficiaryNum;

@@ -11,13 +11,13 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CardUserDto implements Serializable {
+public class CardUserDTO implements Serializable {
 
     private String numberCard;
     private String passwordCard;
 
-    public static CardUserDto findByNumberCard(String numberCard) {
-        return CardUserDto.builder().numberCard(numberCard).build();
+    public static CardUserDTO findByNumberCard(String numberCard) {
+        return CardUserDTO.builder().numberCard(numberCard).build();
     }
 
     public String getNumberCard() {

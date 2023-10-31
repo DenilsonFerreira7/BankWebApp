@@ -31,7 +31,7 @@ public class UserBank {
     @NotNull
     @NotBlank
     @Column(name = "cpfUser")
-    private String cpf;
+    private String cpfUser;
 
     @NotNull
     @NotBlank

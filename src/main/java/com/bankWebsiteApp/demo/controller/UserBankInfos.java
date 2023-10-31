@@ -1,6 +1,6 @@
 package com.bankWebsiteApp.demo.controller;
 
-import com.bankWebsiteApp.demo.dto.CombinedDto;
+import com.bankWebsiteApp.demo.dto.CombinedDTO;
 import com.bankWebsiteApp.demo.service.CombinedService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +19,8 @@ public class UserBankInfos {
 
 
     @GetMapping(value = "/consult/{id}", produces = "application/json")
-    public ResponseEntity<CombinedDto> getCombinedData(@PathVariable Long id) {
-        CombinedDto combinedData = combinedService.getCombinedDataById(id);
+    public ResponseEntity<CombinedDTO> getCombinedData(@PathVariable Long id) {
+        CombinedDTO combinedData = combinedService.getCombinedDataById(id);
         return ResponseEntity.ok(combinedData);
     }
 }

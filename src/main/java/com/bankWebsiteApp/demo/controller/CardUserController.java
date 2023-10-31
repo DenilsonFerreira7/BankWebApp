@@ -1,6 +1,6 @@
 package com.bankWebsiteApp.demo.controller;
 
-import com.bankWebsiteApp.demo.dto.CardUserDto;
+import com.bankWebsiteApp.demo.dto.CardUserDTO;
 import com.bankWebsiteApp.demo.models.CardUser;
 import com.bankWebsiteApp.demo.service.CardUserService;
 import com.bankWebsiteApp.demo.util.ResponseMessagesSuccessful;
@@ -25,7 +25,7 @@ public class CardUserController {
                 body(ResponseMessagesSuccessful.accountCreated(createdAccount.getNumberCard()));
     }
     @GetMapping(value = "/{accountUserBankId}", produces = "application/json")
-    public CardUserDto getAccountUserDto(@PathVariable Long accountUserBankId) {
+    public CardUserDTO getAccountUserDto(@PathVariable Long accountUserBankId) {
         return cardUserService.getAccountUserDtoByAccountUserBank(accountUserBankId);
     }
 }

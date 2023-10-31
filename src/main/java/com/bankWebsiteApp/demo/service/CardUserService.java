@@ -1,7 +1,7 @@
 package com.bankWebsiteApp.demo.service;
 
 import com.bankWebsiteApp.demo.CardConfiguration.CardNumberGenerator;
-import com.bankWebsiteApp.demo.dto.CardUserDto;
+import com.bankWebsiteApp.demo.dto.CardUserDTO;
 import com.bankWebsiteApp.demo.mapper.ConsultMapper;
 import com.bankWebsiteApp.demo.models.CardUser;
 import com.bankWebsiteApp.demo.models.UserBank;
@@ -31,7 +31,7 @@ public class CardUserService {
         return cardUser;
     }
 
-    public CardUserDto getAccountUserDtoByAccountUserBank(Long accountUserBankId) {
+    public CardUserDTO getAccountUserDtoByAccountUserBank(Long accountUserBankId) {
         CardUser cardUser = cardUserRepository.findByAccountUserBankIdUser(accountUserBankId);
         return consultMapper.toDto(cardUser);
     }
