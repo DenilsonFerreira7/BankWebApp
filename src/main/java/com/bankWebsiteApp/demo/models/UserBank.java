@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
@@ -21,20 +23,35 @@ public class UserBank {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
 
+    @NotNull
+    @NotBlank
     @Column(name = "nameUser")
     private String name;
 
-    @Column (name = "cpfUser")
+    @NotNull
+    @NotBlank
+    @Column(name = "cpfUser")
     private String cpf;
 
-    @Column (name = "passwordUser")
+    @NotNull
+    @NotBlank
+    @Column(name = "passwordUser")
     private String passwordUser;
 
-    @Column (name = "emailUser")
+    @NotNull
+    @NotBlank
+    @Column(name = "emailUser")
     private String emailUser;
 
-    @Column (name = "telephoneUser")
+    @NotNull
+    @NotBlank
+    @Column(name = "telephoneUser")
     private String telephone;
+
+
+    public String getPassword() {
+        return passwordUser;
+    }
 
 
 }

@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/accountUser")
@@ -17,7 +19,7 @@ public class UserController {
 
 
     @PostMapping(value = "/create", produces = "application/json")
-    public ResponseEntity<ResponseMessagesSuccessful> createAccountUser (@RequestBody UserBank userBank){
+    public ResponseEntity<ResponseMessagesSuccessful> createAccountUser (@RequestBody @Valid UserBank userBank){
         UserBank createdUser = userService.CriarConta(userBank);
         return ResponseEntity.status(HttpStatus.CREATED).
                 body(ResponseMessagesSuccessful.userCreated(createdUser.getName()));

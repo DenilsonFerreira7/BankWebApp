@@ -15,14 +15,11 @@ import java.sql.Timestamp;
 @Table(name = "Transaction")
 public class Transaction {
 
+
     @Id
     @Column(name = "idTransaction")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idTransaction;
-
-    @ManyToOne
-    @JoinColumn(name = "passwordUser")
-    private UserBank passwordUser;
 
     @ManyToOne
     @JoinColumn(name = "balanceId")
@@ -34,11 +31,16 @@ public class Transaction {
     @Column(name = "transactionAmount")
     private Double transactionAmount;
 
-    @Column (name = "beneficiaryNum")
+    @Column(name = "beneficiaryNum")
     private String beneficiaryNum;
 
     @Column(name = "dateTransaction",
             nullable = false, updatable = false, insertable = false,
             columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp dateTransaction;
+
+    @OneToOne
+    @JoinColumn(name = "idUser")
+    private UserBank accountUserBank;
+
 }

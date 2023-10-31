@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 public class ConsultMapper {
     public CardUserDto toDto(CardUser cardUser) {
         CardUserDto cardUserDto = new CardUserDto();
-        cardUserDto.setNumberAccount(cardUser.getNumberCard());
-        cardUserDto.setAccountUserBank(cardUser.getAccountUserBank().getIdUser());
+        cardUserDto.setNumberCard(cardUser.getNumberCard());
+        cardUserDto.setPasswordCard(Long.toString(cardUser.getAccountUserBank().getIdUser()));
         return cardUserDto;
     }
 }
