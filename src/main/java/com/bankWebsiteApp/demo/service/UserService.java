@@ -22,7 +22,7 @@ public class UserService {
     public UserBankDTO ConsultAccountUser(Long id) {
         return userRepository.findById(id)
                 .map(userMapper::toDTOUser)
-                .orElseThrow(()->new MessageNotFoundException(MessageNotFoundException.NotFoundUserId(id)));
+                .orElseThrow(()-> MessageNotFoundException.NotFoundUserId(id));
 
     }
     public UserBank getUserById(Long id) {

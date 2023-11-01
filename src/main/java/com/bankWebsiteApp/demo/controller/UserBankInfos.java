@@ -17,7 +17,7 @@ public class UserBankInfos {
 
     private final CombinedService combinedService;
 
-
+//CONCERTAR RETORNO
     @GetMapping(value = "/consult/{id}", produces = "application/json")
     public ResponseEntity<CombinedDTO> getCombinedData(@PathVariable Long id) {
         CombinedDTO combinedData = combinedService.getCombinedDataById(id);

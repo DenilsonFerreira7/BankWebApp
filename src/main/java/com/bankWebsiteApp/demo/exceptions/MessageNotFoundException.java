@@ -12,10 +12,16 @@ public class MessageNotFoundException extends RuntimeException {
 
     }
 
-    public static String NotFoundUserId (Long id) {
-        return "Usuario com id " + id + " Não encontrado";
+    public static MessageNotFoundException NotFoundUserId(Long id) {
+        return new MessageNotFoundException("Usuario com id " + id + " Não encontrado");
     }
-    public static String NotFoundPostId (Long id) {
-        return "Post com id " + id + " Não encontrado";
+
+    public static MessageNotFoundException NotFoundCardNumber(String cardNumber) {
+        return new MessageNotFoundException("Cartão com número " + cardNumber + " Não encontrado");
     }
+
+    public static MessageNotFoundException NotFoundCardPassword(String cardNumber) {
+        return new MessageNotFoundException("Senha do cartão " + cardNumber + " invalido");
+    }
+
 }
