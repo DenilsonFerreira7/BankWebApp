@@ -3,9 +3,8 @@ package com.bankWebsiteApp.demo.service;
 import com.bankWebsiteApp.demo.dto.TransactionRequestDto;
 import com.bankWebsiteApp.demo.mapper.TransactionBuilder;
 import com.bankWebsiteApp.demo.models.Transaction;
-import com.bankWebsiteApp.demo.repository.CardUserRepository;
 import com.bankWebsiteApp.demo.repository.TransactionRepository;
-import com.bankWebsiteApp.demo.validation.CardUserValidation;
+import com.bankWebsiteApp.demo.validation.TransactionValidation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,22 +13,19 @@ import org.springframework.stereotype.Service;
 public class TransactionService {
 
     private final TransactionRepository transactionRepository;
-    private final CardUserRepository cardUserRepository;
     private final TransactionBuilder transactionBuilder;
-    private final CardUserValidation cardUserValidation;
+    private final TransactionValidation transactionValidation;
+
 
 
     public void createTransaction(TransactionRequestDto transactionRequest) {
-        // Valide o número do cartão e a senha do cartão usando o serviço de validação.
-        cardUserValidation.validateCardUser(
+        transactionValidation.validateTransaction(
                 transactionRequest.getCardUser().getNumberCard(),
-                transactionRequest.getCardUser().getPasswordCard()
+                transactionRequest.getCardUser().getPasswordCard(),
+                transactionRequest.getIdUser().getIdUser(),
+                transactionRequest.getIdBalance().getIdBalance()
         );
-
-        // Crie a transação usando o construtor de transação.
         Transaction transaction = transactionBuilder.createTransaction(transactionRequest);
-
-        // Salve a transação no banco de dados.
         transactionRepository.save(transaction);
     }
 }

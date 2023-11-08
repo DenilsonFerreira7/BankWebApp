@@ -48,10 +48,4 @@ public class UserBank {
     @Column(name = "telephoneUser")
     private String telephone;
 
-
-    public String getPassword() {
-        return passwordUser;
-    }
-
-
 }

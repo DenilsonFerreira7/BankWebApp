@@ -13,11 +13,8 @@ import org.springframework.stereotype.Service;
 public class CombinedService {
 
     private final UserService userService;
-
     private final BalanceService balanceService;
-
     private final CardUserService cardUserService;
-
     private final DtoMapper dtoMapper;
 
 
