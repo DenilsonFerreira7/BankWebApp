@@ -2,7 +2,9 @@ package com.bankWebsiteApp.demo.controller;
 
 import com.bankWebsiteApp.demo.dto.TransactionRequestDto;
 import com.bankWebsiteApp.demo.service.TransactionService;
+import com.bankWebsiteApp.demo.util.ResponseMessagesSuccessful;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,10 +19,11 @@ public class TransactionController {
     private final TransactionService transactionService;
 
     @PostMapping("/create")
-    public ResponseEntity<String> createTransaction(@RequestBody TransactionRequestDto transactionRequest) {
+    public ResponseEntity createTransaction(@RequestBody TransactionRequestDto transactionRequest) {
         try {
             transactionService.createTransaction(transactionRequest);
-            return ResponseEntity.ok("Transação criada com sucesso.");
+            return ResponseEntity.status(HttpStatus.CREATED).
+                    body(ResponseMessagesSuccessful.transactionSucess(transactionRequest.getBeneficiaryNum()));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

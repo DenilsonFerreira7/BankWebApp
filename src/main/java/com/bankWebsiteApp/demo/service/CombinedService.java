@@ -1,12 +1,14 @@
 package com.bankWebsiteApp.demo.service;
 
-import com.bankWebsiteApp.demo.dto.CardUserDTO;
 import com.bankWebsiteApp.demo.dto.CombinedDTO;
-import com.bankWebsiteApp.demo.dto.UserBankDTO;
 import com.bankWebsiteApp.demo.mapper.DtoMapper;
 import com.bankWebsiteApp.demo.models.Balance;
+import com.bankWebsiteApp.demo.models.CardUser;
+import com.bankWebsiteApp.demo.models.UserBank;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -18,18 +20,22 @@ public class CombinedService {
     private final DtoMapper dtoMapper;
 
 
-    public CombinedDTO getCombinedDataById(Long id) {
-        UserBankDTO userBankOptional = userService.ConsultAccountUser(id);
-        UserBankDTO userBank = userBankOptional;
+    public CombinedDTO getUserDetails(Long userId) {
+        Balance balance = balanceService.getBalanceForUserBank(userId);
+        CardUser cardUser = cardUserService.getCardUserByUserId(userId);
+        Optional<UserBank> userBankOptional = userService.getUserById(userId);
 
-        Balance balance = balanceService.getBalanceForUserBank(userBank);
-        CardUserDTO cardUserDto = cardUserService.getAccountUserDtoByAccountUserBank(userBank.getIdUser());
+        if (userBankOptional.isPresent()) {
+            UserBank userBank = userBankOptional.get();
+            CombinedDTO userBankInfos = dtoMapper.mapToDTO(Optional.of(userBank), balance, cardUser);
 
-        CombinedDTO combinedDataDto = new CombinedDTO();
-        combinedDataDto.setUserBankDto(dtoMapper.convertToUserBankDto(userBank));
-        combinedDataDto.setBalanceDto(dtoMapper.convertToBalanceDto(balance));
-        combinedDataDto.setCardUserDto(cardUserDto);
-
-        return combinedDataDto;
+            CombinedDTO combinedDataDto = new CombinedDTO();
+            combinedDataDto.setUsername(String.valueOf(userBankInfos));
+            return combinedDataDto;
+        } else {
+            // Lida com o caso em que o usuário não foi encontrado
+            // Você pode lançar uma exceção ou retornar um DTO de erro, por exemplo.
+            return null; // Ou outra ação apropriada
+        }
     }
 }

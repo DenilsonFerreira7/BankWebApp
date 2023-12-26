@@ -7,6 +7,8 @@ import com.bankWebsiteApp.demo.validation.UserValidation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class UserService {
@@ -20,6 +22,10 @@ public class UserService {
 
     public UserBankDTO ConsultAccountUser(Long id) {
         return userValidation.validateUserId(id);
+    }
+
+    public Optional<UserBank> getUserById (Long id){
+        return userRepository.findById(id);
     }
 }
 

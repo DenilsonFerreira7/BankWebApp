@@ -16,9 +16,6 @@ public class CardUserDTO implements Serializable {
     private String numberCard;
     private String passwordCard;
 
-    public static CardUserDTO findByNumberCard(String numberCard) {
-        return CardUserDTO.builder().numberCard(numberCard).build();
-    }
 
     public String getNumberCard() {
         return this.numberCard;

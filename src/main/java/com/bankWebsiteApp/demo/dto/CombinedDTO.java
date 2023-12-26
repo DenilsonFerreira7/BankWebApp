@@ -11,8 +11,11 @@ import lombok.NoArgsConstructor;
 @Builder
 
 public class CombinedDTO {
-     private UserBankDTO userBankDto;
-     private BalanceDTO balanceDto;
-     private CardUserDTO cardUserDto;
+     private double debit;
+     private int credit;
+     private String numberCard;
+     private String username;
+     private String telephone;
+     private String cpf;
 
 }

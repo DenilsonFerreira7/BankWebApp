@@ -33,4 +33,7 @@ public class CardUserService {
         CardUser cardUser = cardUserRepository.findByAccountUserBankIdUser(accountUserBankId);
         return consultMapper.toDto(cardUser);
     }
+    public CardUser getCardUserByUserId (Long id){
+        return cardUserRepository.findByAccountUserBankIdUser(id);
+    }
 }

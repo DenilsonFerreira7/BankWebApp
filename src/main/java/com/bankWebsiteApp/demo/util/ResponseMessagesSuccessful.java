@@ -21,4 +21,9 @@ public class ResponseMessagesSuccessful {
         return new ResponseMessagesSuccessful
                 ("Parabéns, você recebeu um limite de credito inicial no valor de  " +Balance+ " $ aproveite !!! ");
     }
+
+    public static ResponseMessagesSuccessful transactionSucess (String Transaction) {
+        return new ResponseMessagesSuccessful
+                ("Transação feita com sucesso para o beneficiario "+ Transaction);
+    }
 }
