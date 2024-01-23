@@ -24,11 +24,15 @@ public class MessageNotFoundException extends RuntimeException {
         return new MessageNotFoundException("Senha do cartão " + cardNumber + " invalido");
     }
 
-    public static MessageNotFoundException NotFounIdBalance (Long id) {
-        return new MessageNotFoundException("id de referencia " +id + " do saldo (balance)  invalido ou não existe");
+    public static MessageNotFoundException NotFounIdBalance(Long id) {
+        return new MessageNotFoundException("id de referencia " + id + " do saldo (balance)  invalido ou não existe");
     }
 
-    public static MessageNotFoundException BalanceNotReference (Long id) {
-        return new MessageNotFoundException("id "+id + " do saldo (balance) não referencia usuario");
+    public static MessageNotFoundException BalanceNotReference(Long id) {
+        return new MessageNotFoundException("id " + id + " do saldo (balance) não referencia usuario");
+    }
+
+    public static MessageNotFoundException CPFAlreadyExists(String cpfUser) {
+        return new MessageNotFoundException("CPF " + cpfUser + " já possui conta no WebAppBak");
     }
 }

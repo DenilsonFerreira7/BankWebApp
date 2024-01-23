@@ -3,6 +3,7 @@ package com.bankWebsiteApp.demo.service;
 import com.bankWebsiteApp.demo.dto.UserBankDTO;
 import com.bankWebsiteApp.demo.models.UserBank;
 import com.bankWebsiteApp.demo.repository.UserRepository;
+import com.bankWebsiteApp.demo.validation.CPFValidation;
 import com.bankWebsiteApp.demo.validation.UserValidation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,10 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final UserValidation userValidation;
+    private final CPFValidation cpfValidation;
 
-    public UserBank CriarConta(UserBank userBank) {
+    public UserBank CriarConta(UserBank userBank) throws IllegalAccessException {
+        cpfValidation.CPFValidation(userBank);
         return userRepository.save(userBank);
     }
 

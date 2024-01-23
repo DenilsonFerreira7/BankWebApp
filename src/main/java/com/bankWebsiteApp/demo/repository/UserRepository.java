@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository <UserBank,Long> {
 
     UserBank findByName(String name);
+    boolean existsByCpfUser(String cpf);
 }
