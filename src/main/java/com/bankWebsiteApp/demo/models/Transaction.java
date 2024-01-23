@@ -43,4 +43,9 @@ public class Transaction {
     @JoinColumn(name = "idUser")
     private UserBank accountUserBank;
 
+    public void setBalanceId(Long balanceId) {
+        this.balance = new Balance();
+        this.balance.setIdBalance(balanceId);
+
+    }
 }

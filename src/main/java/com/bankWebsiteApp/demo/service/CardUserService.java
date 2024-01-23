@@ -29,11 +29,11 @@ public class CardUserService {
         return cardUser;
     }
 
-    public CardUserDTO getAccountUserDtoByAccountUserBank(Long accountUserBankId) {
-        CardUser cardUser = cardUserRepository.findByAccountUserBankIdUser(accountUserBankId);
+    public CardUserDTO getAccountUserDtoByAccountUserBank(UserBank accountUserBank) {
+        CardUser cardUser = cardUserRepository.findByAccountUserBank(accountUserBank);
         return consultMapper.toDto(cardUser);
     }
-    public CardUser getCardUserByUserId (Long id){
-        return cardUserRepository.findByAccountUserBankIdUser(id);
+    public CardUser getCardUserByUserId (UserBank accountUserBank){
+        return cardUserRepository.findByAccountUserBank(accountUserBank);
     }
 }

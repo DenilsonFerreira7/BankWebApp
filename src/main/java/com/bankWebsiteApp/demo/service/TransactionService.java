@@ -22,7 +22,7 @@ public class TransactionService {
         transactionValidation.validateTransaction(
                 transactionRequest.getCardUser().getNumberCard(),
                 transactionRequest.getCardUser().getPasswordCard(),
-                transactionRequest.getIdUser().getIdUser(),
+                transactionRequest.getIdBalance().getIdBalance(),
                 transactionRequest.getIdBalance().getIdBalance()
         );
         Transaction transaction = transactionBuilder.createTransaction(transactionRequest);
