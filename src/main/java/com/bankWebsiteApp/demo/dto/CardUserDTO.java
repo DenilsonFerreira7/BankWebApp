@@ -16,11 +16,9 @@ public class CardUserDTO implements Serializable {
     private String numberCard;
     private String passwordCard;
 
-
     public String getNumberCard() {
         return this.numberCard;
     }
-
     public String getPasswordCard() {
         return this.passwordCard;
     }

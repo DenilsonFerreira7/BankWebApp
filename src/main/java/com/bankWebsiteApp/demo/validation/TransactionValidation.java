@@ -18,7 +18,7 @@ public class TransactionValidation {
     Balance balance;
 
 
-    public void validateTransaction(String numberCard, String passwordCard, Long userId, Long balanceId) {
+    public void validateTransaction(String numberCard, String passwordCard, Long userId, Long balanceId, long idBalance) {
         CardUser cardUser = cardUserRepository.findByNumberCard(numberCard);
 
         if (cardUser == null) {
@@ -35,7 +35,12 @@ public class TransactionValidation {
 
         // Verificar se o id do usuário no Saldo corresponde ao id fornecido
         if (!balance.getAccountUserBank().getIdUser().equals(userId)) {
-            throw MessageNotFoundException.NotFounIdBalance(userId);
+            throw MessageNotFoundException.BalanceNotReference(userId);
+        }
+
+        // Verificar se o id do usuário no cartão corresponde ao id fornecido
+        if (!cardUser.getAccountUserBank().getIdUser().equals(userId)) {
+            throw MessageNotFoundException.BalanceNotReference(userId);
         }
     }
 }

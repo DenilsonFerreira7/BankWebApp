@@ -11,7 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ErrorHandler {
 
-
     private String campo;
     private String message;
     public  ErrorHandler(String message){
