@@ -23,7 +23,7 @@ public class CardUserService {
         UserBank userBank = cardUser.getAccountUserBank();
         cardUserValidation.validateUserCardBank(userBank);
 
-        String generatedNumber = CardNumberGenerator.generateRandomNumber();
+        String generatedNumber = CardNumberGenerator.generateMastercardNumber();
         cardUser.setNumberCard(generatedNumber);
         cardUserRepository.save(cardUser);
         return cardUser;
@@ -33,7 +33,8 @@ public class CardUserService {
         CardUser cardUser = cardUserRepository.findByAccountUserBank(accountUserBank);
         return consultMapper.toDto(cardUser);
     }
-    public CardUser getCardUserByUserId (UserBank accountUserBank){
+
+    public CardUser getCardUserByUserId(UserBank accountUserBank) {
         return cardUserRepository.findByAccountUserBank(accountUserBank);
     }
 }

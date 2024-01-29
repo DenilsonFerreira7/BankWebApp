@@ -36,6 +36,6 @@ public class CardUser {
     // Construtor para preencher automaticamente o número da conta
     public CardUser(UserBank accountUserBank) {
         this.accountUserBank = accountUserBank;
-        this.numberCard = CardNumberGenerator.generateRandomNumber();
+        this.numberCard = CardNumberGenerator.generateMastercardNumber();
     }
 }

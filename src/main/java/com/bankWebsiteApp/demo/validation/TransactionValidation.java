@@ -37,5 +37,10 @@ public class TransactionValidation {
         if (!balance.getAccountUserBank().getIdUser().equals(userId)) {
             throw MessageNotFoundException.NotFounIdBalance(userId);
         }
+
+        // Verificar se o id do usuário no cartão corresponde ao id fornecido
+        if (!cardUser.getAccountUserBank().getIdUser().equals(userId)) {
+            throw MessageNotFoundException.NotFoundUserId(userId);
+        }
     }
 }
