@@ -2,7 +2,7 @@
 //
 //import com.bankWebsiteApp.demo.CardConfiguration.CardNumberGenerator;
 //import com.bankWebsiteApp.demo.repository.CardUserRepository;
-//import com.bankWebsiteApp.demo.validation.CardNumberValidation;
+//import com.bankWebsiteApp.demo.validation.card.CardNumberValidation;
 //import org.junit.jupiter.api.BeforeEach;
 //import org.junit.jupiter.api.Test;
 //import org.mockito.Mockito;

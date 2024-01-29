@@ -1,13 +1,14 @@
-package com.bankWebsiteApp.demo.validation;
+package com.bankWebsiteApp.demo.validation.transaction;
 
 import com.bankWebsiteApp.demo.exceptions.MessageNotFoundException;
 import com.bankWebsiteApp.demo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+// Garante existência do usuario antes da transação
 @RequiredArgsConstructor
 @Service
-public class BalanceValidation {
+public class TransactionIdUserValidation {
 
     private final UserRepository userRepository;
 

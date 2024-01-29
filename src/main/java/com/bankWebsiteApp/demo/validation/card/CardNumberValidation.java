@@ -1,4 +1,4 @@
-package com.bankWebsiteApp.demo.validation;
+package com.bankWebsiteApp.demo.validation.card;
 
 import com.bankWebsiteApp.demo.CardConfiguration.CardNumberGenerator;
 import com.bankWebsiteApp.demo.models.CardUser;

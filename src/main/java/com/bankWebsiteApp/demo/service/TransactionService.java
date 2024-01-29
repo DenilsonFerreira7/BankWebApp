@@ -4,7 +4,7 @@ import com.bankWebsiteApp.demo.dto.TransactionRequestDto;
 import com.bankWebsiteApp.demo.mapper.TransactionBuilder;
 import com.bankWebsiteApp.demo.models.Transaction;
 import com.bankWebsiteApp.demo.repository.TransactionRepository;
-import com.bankWebsiteApp.demo.validation.TransactionValidation;
+import com.bankWebsiteApp.demo.validation.transaction.TransactionValidationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +14,11 @@ public class TransactionService {
 
     private final TransactionRepository transactionRepository;
     private final TransactionBuilder transactionBuilder;
-    private final TransactionValidation transactionValidation;
+    private final TransactionValidationRequest transactionValidationRequest;
 
     public void createTransaction(TransactionRequestDto transactionRequest) {
         // Adicionando validação da transação e do cartão
-        transactionValidation.validateTransaction(
+        transactionValidationRequest.validateTransaction(
                 transactionRequest.getCardUser().getNumberCard(),
                 transactionRequest.getCardUser().getPasswordCard(),
                 transactionRequest.getIdBalance().getIdBalance(),

@@ -3,8 +3,8 @@ package com.bankWebsiteApp.demo.service;
 import com.bankWebsiteApp.demo.dto.UserBankDTO;
 import com.bankWebsiteApp.demo.models.UserBank;
 import com.bankWebsiteApp.demo.repository.UserRepository;
-import com.bankWebsiteApp.demo.validation.CPFValidation;
-import com.bankWebsiteApp.demo.validation.UserValidation;
+import com.bankWebsiteApp.demo.validation.user.CPFValidation;
+import com.bankWebsiteApp.demo.validation.user.UserValidation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
