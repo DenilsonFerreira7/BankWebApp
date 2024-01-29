@@ -12,8 +12,6 @@ public class CardNumberValidation {
     private final CardUserRepository cardUserRepository;
     private final CardNumberGenerator cardNumberGenerator;
 
-
-
         public String generateUniqueCardNumber() {
             String generatedNumber;
 
