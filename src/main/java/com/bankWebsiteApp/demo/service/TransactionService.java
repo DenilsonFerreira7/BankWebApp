@@ -4,7 +4,7 @@ import com.bankWebsiteApp.demo.dto.TransactionRequestDto;
 import com.bankWebsiteApp.demo.mapper.TransactionBuilder;
 import com.bankWebsiteApp.demo.models.Transaction;
 import com.bankWebsiteApp.demo.repository.TransactionRepository;
-import com.bankWebsiteApp.demo.validation.TransactionValidation;
+import com.bankWebsiteApp.demo.validation.transactionValidate.TransactionValidation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -6,7 +6,7 @@ import com.bankWebsiteApp.demo.mapper.ConsultMapper;
 import com.bankWebsiteApp.demo.models.CardUser;
 import com.bankWebsiteApp.demo.models.UserBank;
 import com.bankWebsiteApp.demo.repository.CardUserRepository;
-import com.bankWebsiteApp.demo.validation.CardUserValidation;
+import com.bankWebsiteApp.demo.validation.cardValidate.CardUserValidation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

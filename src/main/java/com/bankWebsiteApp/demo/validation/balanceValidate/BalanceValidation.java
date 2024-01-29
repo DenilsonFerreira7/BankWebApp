@@ -1,4 +1,4 @@
-package com.bankWebsiteApp.demo.validation;
+package com.bankWebsiteApp.demo.validation.balanceValidate;
 
 import com.bankWebsiteApp.demo.exceptions.MessageNotFoundException;
 import com.bankWebsiteApp.demo.repository.UserRepository;

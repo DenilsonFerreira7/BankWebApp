@@ -1,4 +1,4 @@
-package com.bankWebsiteApp.demo.validation;
+package com.bankWebsiteApp.demo.validation.transactionValidate;
 
 import com.bankWebsiteApp.demo.exceptions.MessageNotFoundException;
 import com.bankWebsiteApp.demo.models.Balance;

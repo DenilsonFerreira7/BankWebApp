@@ -1,10 +1,9 @@
-package com.bankWebsiteApp.demo.validation;
+package com.bankWebsiteApp.demo.validation.userValidate;
 
 import com.bankWebsiteApp.demo.exceptions.MessageNotFoundException;
 import com.bankWebsiteApp.demo.models.UserBank;
 import com.bankWebsiteApp.demo.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import org.aspectj.bridge.Message;
 import org.springframework.stereotype.Component;
 
 @AllArgsConstructor

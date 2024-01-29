@@ -1,4 +1,4 @@
-package com.bankWebsiteApp.demo.validation;
+package com.bankWebsiteApp.demo.validation.userValidate;
 
 import com.bankWebsiteApp.demo.dto.UserBankDTO;
 import com.bankWebsiteApp.demo.exceptions.MessageNotFoundException;
