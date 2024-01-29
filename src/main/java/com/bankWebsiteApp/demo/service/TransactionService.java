@@ -16,20 +16,16 @@ public class TransactionService {
     private final TransactionBuilder transactionBuilder;
     private final TransactionValidation transactionValidation;
 
+
+
     public void createTransaction(TransactionRequestDto transactionRequest) {
-        // Adicionando validação da transação e do cartão
         transactionValidation.validateTransaction(
                 transactionRequest.getCardUser().getNumberCard(),
                 transactionRequest.getCardUser().getPasswordCard(),
                 transactionRequest.getIdBalance().getIdBalance(),
-                transactionRequest.getIdUser().getIdUser(),
                 transactionRequest.getIdBalance().getIdBalance()
         );
-
-        // Criar a transação usando o TransactionBuilder
         Transaction transaction = transactionBuilder.createTransaction(transactionRequest);
-
-        // Salvar a transação no repositório
         transactionRepository.save(transaction);
     }
 }
