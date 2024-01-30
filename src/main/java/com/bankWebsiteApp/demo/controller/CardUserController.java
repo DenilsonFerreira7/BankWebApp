@@ -2,6 +2,7 @@ package com.bankWebsiteApp.demo.controller;
 
 import com.bankWebsiteApp.demo.dto.CardUserDTO;
 import com.bankWebsiteApp.demo.models.CardUser;
+import com.bankWebsiteApp.demo.models.UserBank;
 import com.bankWebsiteApp.demo.service.CardUserService;
 import com.bankWebsiteApp.demo.util.ResponseMessagesSuccessful;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,7 @@ public class CardUserController {
                 body(ResponseMessagesSuccessful.accountCreated(createdAccount.getNumberCard()));
     }
     @GetMapping(value = "/{accountUserBankId}", produces = "application/json")
-    public CardUserDTO getAccountUserDto(@PathVariable Long accountUserBankId) {
+    public CardUserDTO getAccountUserDto(@PathVariable UserBank accountUserBankId) {
         return cardUserService.getAccountUserDtoByAccountUserBank(accountUserBankId);
     }
 }

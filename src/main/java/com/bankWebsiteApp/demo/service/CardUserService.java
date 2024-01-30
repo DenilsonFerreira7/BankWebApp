@@ -6,7 +6,7 @@ import com.bankWebsiteApp.demo.mapper.ConsultMapper;
 import com.bankWebsiteApp.demo.models.CardUser;
 import com.bankWebsiteApp.demo.models.UserBank;
 import com.bankWebsiteApp.demo.repository.CardUserRepository;
-import com.bankWebsiteApp.demo.validation.CardUserValidation;
+import com.bankWebsiteApp.demo.validation.cardValidate.CardUserValidation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,17 +23,18 @@ public class CardUserService {
         UserBank userBank = cardUser.getAccountUserBank();
         cardUserValidation.validateUserCardBank(userBank);
 
-        String generatedNumber = CardNumberGenerator.generateRandomNumber();
+        String generatedNumber = CardNumberGenerator.generateMastercardNumber();
         cardUser.setNumberCard(generatedNumber);
         cardUserRepository.save(cardUser);
         return cardUser;
     }
 
-    public CardUserDTO getAccountUserDtoByAccountUserBank(Long accountUserBankId) {
-        CardUser cardUser = cardUserRepository.findByAccountUserBankIdUser(accountUserBankId);
+    public CardUserDTO getAccountUserDtoByAccountUserBank(UserBank accountUserBank) {
+        CardUser cardUser = cardUserRepository.findByAccountUserBank(accountUserBank);
         return consultMapper.toDto(cardUser);
     }
-    public CardUser getCardUserByUserId (Long id){
-        return cardUserRepository.findByAccountUserBankIdUser(id);
+
+    public CardUser getCardUserByUserId(UserBank accountUserBank) {
+        return cardUserRepository.findByAccountUserBank(accountUserBank);
     }
 }

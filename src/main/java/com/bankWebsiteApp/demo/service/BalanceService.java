@@ -5,7 +5,7 @@ import com.bankWebsiteApp.demo.models.Balance;
 import com.bankWebsiteApp.demo.models.UserBank;
 import com.bankWebsiteApp.demo.repository.BalanceRepository;
 import com.bankWebsiteApp.demo.repository.UserRepository;
-import com.bankWebsiteApp.demo.validation.BalanceValidation;
+import com.bankWebsiteApp.demo.validation.balanceValidate.BalanceValidation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +17,12 @@ public class BalanceService {
     private final UserRepository userRepository;
     private final BalanceValidation balanceValidation;
 
+
     public Balance createBalance(Balance balance) {
         Long userId = balance.getAccountUserBank().getIdUser();
         balanceValidation.validateUserExistence(userId);
 
-        int generatedLimit = CardCreditLimit.generateLimitCredit();
+        int generatedLimit = CardCreditLimit.generateLimitCredit(); // Ajuste aqui
         balance.setCredit(generatedLimit);
 
         UserBank userBank = userRepository.findById(userId).get();
@@ -32,8 +33,4 @@ public class BalanceService {
         return balanceRepository.save(balance);
     }
 
-
-    public Balance getBalanceForUserBank(Long userBank) {
-        return balanceRepository.findByAccountUserBank(userBank);
-    }
 }

@@ -1,41 +1,40 @@
 package com.bankWebsiteApp.demo.service;
 
 import com.bankWebsiteApp.demo.dto.CombinedDTO;
-import com.bankWebsiteApp.demo.mapper.DtoMapper;
 import com.bankWebsiteApp.demo.models.Balance;
 import com.bankWebsiteApp.demo.models.CardUser;
 import com.bankWebsiteApp.demo.models.UserBank;
+import com.bankWebsiteApp.demo.repository.BalanceRepository;
+import com.bankWebsiteApp.demo.repository.CardUserRepository;
+import com.bankWebsiteApp.demo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.util.Optional;
+import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
-@Service
+@Component
 public class CombinedService {
 
-    private final UserService userService;
-    private final BalanceService balanceService;
-    private final CardUserService cardUserService;
-    private final DtoMapper dtoMapper;
+    private final UserRepository userRepository;
+    private final BalanceRepository balanceRepository;
+    private final CardUserRepository cardUserRepository;
 
-
-    public CombinedDTO getUserDetails(Long userId) {
-        Balance balance = balanceService.getBalanceForUserBank(userId);
-        CardUser cardUser = cardUserService.getCardUserByUserId(userId);
-        Optional<UserBank> userBankOptional = userService.getUserById(userId);
-
-        if (userBankOptional.isPresent()) {
-            UserBank userBank = userBankOptional.get();
-            CombinedDTO userBankInfos = dtoMapper.mapToDTO(Optional.of(userBank), balance, cardUser);
-
-            CombinedDTO combinedDataDto = new CombinedDTO();
-            combinedDataDto.setUsername(String.valueOf(userBankInfos));
-            return combinedDataDto;
-        } else {
-            // Lida com o caso em que o usuário não foi encontrado
-            // Você pode lançar uma exceção ou retornar um DTO de erro, por exemplo.
-            return null; // Ou outra ação apropriada
+    public CombinedDTO getUserInfoById(Long userId) {
+        UserBank userBank = userRepository.findById(userId).orElse(null);
+        if (userBank == null) {
+            return null; // Handle user not found
         }
+
+        Balance balance = balanceRepository.findByAccountUserBank(userBank);
+        CardUser cardUser = cardUserRepository.findByAccountUserBank(userBank);
+
+        return new CombinedDTO(
+                userId,
+                balance != null ? balance.getDebit() : 0,
+                balance != null ? balance.getCredit() : 0,
+                cardUser != null ? cardUser.getNumberCard() : null,
+                userBank.getName(),
+                userBank.getTelephone(),
+                userBank.getCpfUser()
+        );
     }
 }

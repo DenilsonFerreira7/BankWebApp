@@ -16,11 +16,23 @@ public class DtoMapper {
     private final ModelMapper modelMapper;
 
 
-    public CombinedDTO mapToDTO(Optional<UserBank> userBank, Balance balance, CardUser cardUser) {
-        CombinedDTO userDetailsDTO = modelMapper.map(userBank, CombinedDTO.class);
+    public  CombinedDTO mapToDTO(Optional<UserBank> userBankOptional, Balance balance, CardUser cardUser) {
+        CombinedDTO userDetailsDTO = new CombinedDTO();
+
+        if (userBankOptional.isPresent()) {
+            UserBank userBank = userBankOptional.get();
+
+            // Mapeia os campos do UserBankDTO
+            userDetailsDTO = modelMapper.map(userBank, CombinedDTO.class);
+        }
+
+        // Define os campos adicionais
         userDetailsDTO.setDebit(balance.getDebit());
         userDetailsDTO.setCredit(balance.getCredit());
         userDetailsDTO.setNumberCard(cardUser.getNumberCard());
+        userDetailsDTO.setUserId(userDetailsDTO.getUserId());
+
+
         return userDetailsDTO;
     }
 }

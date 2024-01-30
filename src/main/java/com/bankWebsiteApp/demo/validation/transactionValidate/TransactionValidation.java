@@ -1,4 +1,4 @@
-package com.bankWebsiteApp.demo.validation;
+package com.bankWebsiteApp.demo.validation.transactionValidate;
 
 import com.bankWebsiteApp.demo.exceptions.MessageNotFoundException;
 import com.bankWebsiteApp.demo.models.Balance;
@@ -36,6 +36,11 @@ public class TransactionValidation {
         // Verificar se o id do usuário no Saldo corresponde ao id fornecido
         if (!balance.getAccountUserBank().getIdUser().equals(userId)) {
             throw MessageNotFoundException.NotFounIdBalance(userId);
+        }
+
+        // Verificar se o id do usuário no cartão corresponde ao id fornecido
+        if (!cardUser.getAccountUserBank().getIdUser().equals(userId)) {
+            throw MessageNotFoundException.NotFoundUserId(userId);
         }
     }
 }

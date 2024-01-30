@@ -36,7 +36,7 @@ class BankWebSiteApplicationTests {
 		//simula dados inserido
 		UserBank userBank = new UserBank();
 		userBank.setName("John Doe");
-		userBank.setCpf("123456789");
+		userBank.setCpfUser("123456789");
 		userBank.setTelephone("139955221");
 
 		//converte dados para json
@@ -55,7 +55,7 @@ class BankWebSiteApplicationTests {
 		//verifica se os dados estão inserido corretamente e se não retorna nulo
 		assertNotNull(savedUser);
 		assertEquals("John Doe", savedUser.getName());
-		assertEquals("123456789", savedUser.getCpf());
+		assertEquals("123456789", savedUser.getCpfUser());
 		assertEquals("139955221", savedUser.getTelephone());
 	}
 }

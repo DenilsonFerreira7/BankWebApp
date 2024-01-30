@@ -2,8 +2,7 @@ package com.bankWebsiteApp.demo.service;
 
 import com.bankWebsiteApp.demo.dto.UserBankDTO;
 import com.bankWebsiteApp.demo.models.UserBank;
-import com.bankWebsiteApp.demo.repository.UserRepository;
-import com.bankWebsiteApp.demo.validation.userValidate.CPFValidation;
+import com.bankWebsiteApp.demo.repository.UserBankRepository;
 import com.bankWebsiteApp.demo.validation.userValidate.UserValidation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,15 +11,13 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public class UserService {
+public class UserBankService {
 
-    private final UserRepository userRepository;
+    private final UserBankRepository userBankRepository;
     private final UserValidation userValidation;
-    private final CPFValidation cpfValidation;
 
-    public UserBank CriarConta(UserBank userBank) throws IllegalAccessException {
-        cpfValidation.CPFValidation(userBank);
-        return userRepository.save(userBank);
+    public UserBank CriarConta(UserBank userBank) {
+        return userBankRepository.save(userBank);
     }
 
     public UserBankDTO ConsultAccountUser(Long id) {
@@ -28,7 +25,7 @@ public class UserService {
     }
 
     public Optional<UserBank> getUserById (Long id){
-        return userRepository.findById(id);
+        return userBankRepository.findById(id);
     }
 }
 

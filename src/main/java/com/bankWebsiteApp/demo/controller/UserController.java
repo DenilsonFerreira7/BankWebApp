@@ -20,7 +20,7 @@ public class UserController {
 
 
     @PostMapping(value = "/create", produces = "application/json")
-    public ResponseEntity<ResponseMessagesSuccessful> createAccountUser (@RequestBody @Valid UserBank userBank){
+    public ResponseEntity<ResponseMessagesSuccessful> createAccountUser (@RequestBody @Valid UserBank userBank) throws IllegalAccessException {
         UserBank createdUser = userService.CriarConta(userBank);
         return ResponseEntity.status(HttpStatus.CREATED).
                 body(ResponseMessagesSuccessful.userCreated(createdUser.getName()));
