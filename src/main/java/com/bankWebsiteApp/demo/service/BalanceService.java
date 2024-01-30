@@ -18,7 +18,7 @@ public class BalanceService {
     private final BalanceValidation balanceValidation;
 
 
-    public Balance createBalance(Balance balance) {
+    public Balance createFirstBalance(Balance balance) {
         Long userId = balance.getAccountUserBank().getIdUser();
         balanceValidation.validateUserExistence(userId);
 

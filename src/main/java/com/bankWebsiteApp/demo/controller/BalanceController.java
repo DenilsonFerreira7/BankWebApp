@@ -20,7 +20,7 @@ public class BalanceController {
 
     @PostMapping(value = "/created", produces = "application/json")
     public ResponseEntity balanceCreated (@RequestBody Balance balance){
-        Balance balanceCreated = balanceService.createBalance(balance);
+        Balance balanceCreated = balanceService.createFirstBalance(balance);
         return  ResponseEntity.status(HttpStatus.CREATED).
                 body(ResponseMessagesSuccessful.balanceCreated(balanceCreated.getCredit()));
     }
