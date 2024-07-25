@@ -30,7 +30,7 @@ public class CombinedService {
         return new CombinedDTO(
                 userId,
                 balance != null ? balance.getDebit() : 0,
-                balance != null ? balance.getCredit() : 0,
+                balance != null ? balance.getCredit() : 0.0,  // Alterado para double
                 cardUser != null ? cardUser.getNumberCard() : null,
                 userBank.getName(),
                 userBank.getTelephone(),

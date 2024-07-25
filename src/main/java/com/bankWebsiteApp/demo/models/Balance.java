@@ -25,7 +25,7 @@ public class Balance {
     private double debit;
 
     @Column(name = "credit")
-    private int credit;
+    private double credit;
 
     @OneToOne
     @JoinColumn(name = "idUser")

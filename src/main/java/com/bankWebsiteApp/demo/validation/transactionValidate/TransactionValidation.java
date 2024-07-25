@@ -17,7 +17,6 @@ public class TransactionValidation {
 
     Balance balance;
 
-
     public void validateTransaction(String numberCard, String passwordCard, Long userId, Long balanceId) {
         CardUser cardUser = cardUserRepository.findByNumberCard(numberCard);
 

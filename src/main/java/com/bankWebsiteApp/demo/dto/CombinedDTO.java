@@ -14,7 +14,7 @@ public class CombinedDTO {
 
      private Long userId;
      private double debit;
-     private int credit;
+     private double credit;
      private String numberCard;
      private String username;
      private String telephone;

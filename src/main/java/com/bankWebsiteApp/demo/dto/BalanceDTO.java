@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class BalanceDTO implements Serializable {
 
     private double debit;
-    private int credit;
+    private double credit;
     private Long accountUserBank;
 
 }

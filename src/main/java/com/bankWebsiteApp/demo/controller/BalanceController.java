@@ -19,9 +19,9 @@ public class BalanceController {
     private final BalanceService balanceService;
 
     @PostMapping(value = "/created", produces = "application/json")
-    public ResponseEntity balanceCreated (@RequestBody Balance balance){
+    public ResponseEntity balanceCreated(@RequestBody Balance balance) {
         Balance balanceCreated = balanceService.createFirstBalance(balance);
-        return  ResponseEntity.status(HttpStatus.CREATED).
-                body(ResponseMessagesSuccessful.balanceCreated(balanceCreated.getCredit()));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(ResponseMessagesSuccessful.balanceCreated(balanceCreated.getCredit()));
     }
 }

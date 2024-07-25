@@ -17,7 +17,7 @@ public class ResponseMessagesSuccessful {
                 ("Seja bem vindo " + userBank + " você acaba de se cadastrar no maior banco do brasil AppBank");
     }
 
-    public static ResponseMessagesSuccessful balanceCreated (int Balance) {
+    public static ResponseMessagesSuccessful balanceCreated (double Balance) {
         return new ResponseMessagesSuccessful
                 ("Parabéns, você recebeu um limite de credito inicial no valor de  " +Balance+ " $ aproveite !!! ");
     }

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class TransactionBuilder {
 
-
     public Transaction createTransaction(TransactionRequestDto transactionRequest) {
         Transaction transaction = new Transaction();
         transaction.setAccountUserBank(transactionRequest.getIdUser());
