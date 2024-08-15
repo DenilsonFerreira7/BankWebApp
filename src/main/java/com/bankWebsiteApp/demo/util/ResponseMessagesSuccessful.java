@@ -1,4 +1,5 @@
 package com.bankWebsiteApp.demo.util;
+import com.bankWebsiteApp.demo.models.Balance;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -17,13 +18,19 @@ public class ResponseMessagesSuccessful {
                 ("Seja bem vindo " + userBank + " você acaba de se cadastrar no maior banco do brasil AppBank");
     }
 
-    public static ResponseMessagesSuccessful balanceCreated (double Balance) {
+
+    public static ResponseMessagesSuccessful transactionSucess(String Transaction) {
         return new ResponseMessagesSuccessful
-                ("Parabéns, você recebeu um limite de credito inicial no valor de  " +Balance+ " $ aproveite !!! ");
+                ("Transação feita com sucesso para o beneficiario " + Transaction);
     }
 
-    public static ResponseMessagesSuccessful transactionSucess (String Transaction) {
-        return new ResponseMessagesSuccessful
-                ("Transação feita com sucesso para o beneficiario "+ Transaction);
+    public static ResponseMessagesSuccessful balanceCreated(double creditAmount, boolean isFirstDeposit) {
+        if (isFirstDeposit) {
+            return new ResponseMessagesSuccessful(
+                    "Parabéns, você recebeu um limite de crédito inicial no valor de " + creditAmount + " $ aproveite !!!");
+        } else {
+            return new ResponseMessagesSuccessful(
+                    "Depósito realizado com sucesso! Seu saldo foi atualizado.");
+        }
     }
 }

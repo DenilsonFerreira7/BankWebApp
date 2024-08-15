@@ -1,6 +1,6 @@
 package com.bankWebsiteApp.demo.service;
 
-import com.bankWebsiteApp.demo.CardConfiguration.CardCreditLimit;
+import com.bankWebsiteApp.demo.cardConfiguration.CardCreditLimit;
 import com.bankWebsiteApp.demo.exceptions.MessageNotFoundException;
 import com.bankWebsiteApp.demo.models.Balance;
 import com.bankWebsiteApp.demo.models.UserBank;
@@ -18,19 +18,26 @@ public class BalanceService {
     private final UserRepository userRepository;
     private final BalanceValidation balanceValidation;
 
-    public Balance createFirstBalance(Balance balance) {
+    public Balance createOrUpdateBalance(Balance balance) {
         Long userId = balance.getAccountUserBank().getIdUser();
         balanceValidation.validateUserExistence(userId);
 
-        double generatedLimit = CardCreditLimit.generateLimitCredit(); // Certifique-se de que este método retorna um double
-        balance.setCredit(generatedLimit);
+        boolean isFirstDeposit = balanceValidation.isFirstDeposit(userId);
+        if (isFirstDeposit) {
+            double generatedLimit = CardCreditLimit.generateLimitCredit(); // Certifique-se de que este método retorna um double
+            balance.setCredit(generatedLimit);
+            balance.setDebit(balance.getDebit()); // Define o valor de débito inicial
 
-        UserBank userBank = userRepository.findById(userId).get();
+            UserBank userBank = userRepository.findById(userId).get();
+            balance.setAccountUserBank(userBank);
 
-        balance.setAccountUserBank(userBank);
-        userRepository.save(userBank);
-
-        return balanceRepository.save(balance);
+            return balanceRepository.save(balance);
+        } else {
+            // Atualiza o saldo existente
+            Balance existingBalance = balanceRepository.findByAccountUserBank_IdUser(userId).orElseThrow(() -> new MessageNotFoundException("Balance not found"));
+            existingBalance.setDebit(existingBalance.getDebit() + balance.getDebit());
+            return balanceRepository.save(existingBalance);
+        }
     }
 
     public void updateBalanceForTransaction(Balance balance, double amount, String transactionType) {

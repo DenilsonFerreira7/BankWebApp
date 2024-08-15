@@ -1,6 +1,6 @@
 package com.bankWebsiteApp.demo.service;
 
-import com.bankWebsiteApp.demo.CardConfiguration.CardNumberGenerator;
+import com.bankWebsiteApp.demo.cardConfiguration.CardNumberGenerator;
 import com.bankWebsiteApp.demo.dto.CardUserDTO;
 import com.bankWebsiteApp.demo.mapper.ConsultMapper;
 import com.bankWebsiteApp.demo.models.CardUser;

@@ -1,4 +1,4 @@
-package com.bankWebsiteApp.demo.CardConfiguration;
+package com.bankWebsiteApp.demo.cardConfiguration;
 
 import java.util.Random;
 

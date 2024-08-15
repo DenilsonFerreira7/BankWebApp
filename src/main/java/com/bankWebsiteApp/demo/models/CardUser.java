@@ -1,5 +1,5 @@
 package com.bankWebsiteApp.demo.models;
-import com.bankWebsiteApp.demo.CardConfiguration.CardNumberGenerator;
+import com.bankWebsiteApp.demo.cardConfiguration.CardNumberGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

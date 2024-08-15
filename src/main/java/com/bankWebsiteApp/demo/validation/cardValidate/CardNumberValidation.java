@@ -1,6 +1,6 @@
 package com.bankWebsiteApp.demo.validation.cardValidate;
 
-import com.bankWebsiteApp.demo.CardConfiguration.CardNumberGenerator;
+import com.bankWebsiteApp.demo.cardConfiguration.CardNumberGenerator;
 import com.bankWebsiteApp.demo.models.CardUser;
 import com.bankWebsiteApp.demo.repository.CardUserRepository;
 import lombok.AllArgsConstructor;

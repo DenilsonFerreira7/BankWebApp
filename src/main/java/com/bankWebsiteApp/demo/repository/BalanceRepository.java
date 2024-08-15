@@ -13,6 +13,7 @@ public interface BalanceRepository extends JpaRepository<Balance, Long> {
 
     Optional<Balance> findById(Long id);
     Balance findByAccountUserBank(UserBank accountUserBank);
+    Optional<Balance> findByAccountUserBank_IdUser(Long userId);
 
 
 

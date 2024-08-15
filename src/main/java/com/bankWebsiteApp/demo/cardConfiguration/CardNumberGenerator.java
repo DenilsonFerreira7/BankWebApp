@@ -1,6 +1,4 @@
-package com.bankWebsiteApp.demo.CardConfiguration;
-
-import java.util.Random;
+package com.bankWebsiteApp.demo.cardConfiguration;
 
 public class CardNumberGenerator {
 
